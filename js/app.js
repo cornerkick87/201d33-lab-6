@@ -106,3 +106,10 @@ var shops =  [ {
     }
 }
 ];
+
+function calcSales() {
+    for(var i = 0; i < shops.length; i++) {
+        shops[i].showRandomCustCount()  
+    }
+    
+}
