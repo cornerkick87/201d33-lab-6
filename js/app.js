@@ -5,21 +5,37 @@ var shops =  [ {
     minCust: 23,
     maxCust:  65,
     avgCookieSales: 3,
-    
-    showRandomCustCount: function() {
+    showSales: function() {
+        var tableRow = document.createElement('tr');
+        var salesTable = document.getElementById('salesTable');
+        salesTable.appendChild(tableRow);
+        
+        var tableData = document.createElement ('td');
+        tableRow.appendChild(tableData);
+        tableData.textContent = this.location;
+        
+        for(var i = 0; i < 15; i++) {
+            tableData = document.createElement ('td');
+            tableRow.appendChild(tableData);
+            tableData.textContent = this.sales[i];
+        }
+        
+    },
+        
+    calcCustCount: function() {
         this.cust =[];
         this.sales = [];
         for(var i = 0; i < 15; i++) {
             var hrlyCust = Math.floor (Math.random()* (this.maxCust-this.minCust)) + 1;
-
+            
             var hrlySales = hrlyCust * this.avgCookieSales;
-         
+            
             this.sales.push(hrlySales);
             console.log('Sales' + this.sales);
             this.cust.push(hrlyCust);
             console.log('customers' + this.cust);
         }
-            
+        
     }
 },
 
@@ -28,14 +44,31 @@ var shops =  [ {
     minCust: 3,
     maxCust: 24,
     avgCookieSales: 1.2,
-    showRandomCustCount: function() {
+    showSales: function() {
+        var tableRow = document.createElement('tr');
+        var salesTable = document.getElementById('salesTable');
+        salesTable.appendChild(tableRow);
+        
+        var tableData = document.createElement ('td');
+        tableRow.appendChild(tableData);
+        tableData.textContent = this.location;
+        
+        for(var i = 0; i < 15; i++) {
+            tableData = document.createElement ('td');
+            tableRow.appendChild(tableData);
+            tableData.textContent = this.sales[i];
+        }
+        
+    },
+
+    calcCustCount: function() {
         this.cust =[];
         this.sales = [];
         for(var i = 0; i < 15; i++) {
             var hrlyCust = Math.floor (Math.random()* (this.maxCust-this.minCust)) + 1;
-
+            
             var hrlySales = hrlyCust * this.avgCookieSales;
-         
+            
             this.sales.push(hrlySales);
             console.log('Sales' + this.sales);
             this.cust.push(hrlyCust);
@@ -49,14 +82,31 @@ var shops =  [ {
     minCust: 11,
     maxCust: 38,
     avgCookieSales: 3.7,
-    showRandomCustCount: function() {
+    showSales: function() {
+        var tableRow = document.createElement('tr');
+        var salesTable = document.getElementById('salesTable');
+        salesTable.appendChild(tableRow);
+        
+        var tableData = document.createElement ('td');
+        tableRow.appendChild(tableData);
+        tableData.textContent = this.location;
+        
+        for(var i = 0; i < 15; i++) {
+            tableData = document.createElement ('td');
+            tableRow.appendChild(tableData);
+            tableData.textContent = this.sales[i];
+        }
+        
+    },
+
+    calcCustCount: function() {
         this.cust =[];
         this.sales = [];
         for(var i = 0; i < 15; i++) {
             var hrlyCust = Math.floor (Math.random()* (this.maxCust-this.minCust)) + 1;
-
+            
             var hrlySales = hrlyCust * this.avgCookieSales;
-         
+            
             this.sales.push(hrlySales);
             console.log('Sales' + this.sales);
             this.cust.push(hrlyCust);
@@ -70,14 +120,31 @@ var shops =  [ {
     minCust: 20,
     maxCust: 38,
     avgCookieSales: 2.3,
-    showRandomCustCount: function() {
+    showSales: function() {
+        var tableRow = document.createElement('tr');
+        var salesTable = document.getElementById('salesTable');
+        salesTable.appendChild(tableRow);
+        
+        var tableData = document.createElement ('td');
+        tableRow.appendChild(tableData);
+        tableData.textContent = this.location;
+        
+        for(var i = 0; i < 15; i++) {
+            tableData = document.createElement ('td');
+            tableRow.appendChild(tableData);
+            tableData.textContent = this.sales[i];
+        }
+        
+    },
+    
+    calcCustCount: function() {
         this.cust =[];
         this.sales = [];
         for(var i = 0; i < 15; i++) {
             var hrlyCust = Math.floor (Math.random()* (this.maxCust-this.minCust)) + 1;
-
+            
             var hrlySales = hrlyCust * this.avgCookieSales;
-         
+            
             this.sales.push(hrlySales);
             console.log('Sales' + this.sales);
             this.cust.push(hrlyCust);
@@ -86,18 +153,35 @@ var shops =  [ {
     }
 },
 {
-    location: "Akli",
+    location: "Alki",
     minCust: 2, 
     maxCust: 16,
     avgCookieSales: 46,
-    showRandomCustCount: function() {
+    showSales: function() {
+        var tableRow = document.createElement('tr');
+        var salesTable = document.getElementById('salesTable');
+        salesTable.appendChild(tableRow);
+        
+        var tableData = document.createElement ('td');
+        tableRow.appendChild(tableData);
+        tableData.textContent = this.location;
+        
+        for(var i = 0; i < 15; i++) {
+            tableData = document.createElement ('td');
+            tableRow.appendChild(tableData);
+            tableData.textContent = this.sales[i];
+        }
+        
+    },
+    
+    calcCustCount: function() {
         this.cust =[];
         this.sales = [];
         for(var i = 0; i < 15; i++) {
             var hrlyCust = Math.floor (Math.random()* (this.maxCust-this.minCust)) + 1;
-
-            var hrlySales = hrlyCust * this.avgCookieSales;
-         
+            
+            var hrlySales =Math.round (hrlyCust * this.avgCookieSales);
+            
             this.sales.push(hrlySales);
             console.log('Sales' + this.sales);
             this.cust.push(hrlyCust);
@@ -107,9 +191,10 @@ var shops =  [ {
 }
 ];
 
-function calcSales() {
+function calcAndShowSales() {
     for(var i = 0; i < shops.length; i++) {
-        shops[i].showRandomCustCount()  
+        shops[i].calcCustCount(); 
+        shops[i].showSales(); 
     }
     
 }
