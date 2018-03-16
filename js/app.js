@@ -1,4 +1,45 @@
 
+function Shop(location, minCust, maxCust, avgCookieSales) {
+    this.location = location;
+    this.minCust = minCust;
+    this.maxCust = maxCust;
+    this.avgCookieSales = avgCookieSales;
+    this.cust =[];
+    this.sales = [];
+}
+
+Shop.prototype.calcCustCount = function(){
+
+    for(var i = 0; i < 15; i++) {
+        var hrlyCust = Math.floor(Math.random()* (this.maxCust-this.minCust) +this.minCust);
+        
+        var hrlySales = hrlyCust * this.avgCookieSales;
+        
+        this.sales.push(hrlySales);
+        console.log('Sales' + this.sales);
+        this.cust.push(hrlyCust);
+        console.log('customers' + this.cust);
+    }
+    
+};
+Shop.prototype.showSales = function() {
+    var tableRow = document.createElement('tr');
+    var salesTable = document.getElementById('salesTable');
+    salesTable.appendChild(tableRow);
+    
+    var tableData = document.createElement ('td');
+    tableRow.appendChild(tableData);
+    tableData.textContent = this.location;
+    
+    for(var i = 0; i < 15; i++) {
+        tableData = document.createElement ('td');
+        tableRow.appendChild(tableData);
+        tableData.textContent = this.sales[i];
+    }
+    
+};
+
+
 
 var shops =  [ {
     location: "1st and Pike", 
@@ -21,12 +62,12 @@ var shops =  [ {
         }
         
     },
-        
+    
     calcCustCount: function() {
         this.cust =[];
         this.sales = [];
         for(var i = 0; i < 15; i++) {
-            var hrlyCust = Math.floor (Math.random()* (this.maxCust-this.minCust)) + 1;
+            var hrlyCust = Math.floor(Math.random()* (this.maxCust-this.minCust)) + 1;
             
             var hrlySales = hrlyCust * this.avgCookieSales;
             
@@ -60,12 +101,12 @@ var shops =  [ {
         }
         
     },
-
+    
     calcCustCount: function() {
         this.cust =[];
         this.sales = [];
         for(var i = 0; i < 15; i++) {
-            var hrlyCust = Math.floor (Math.random()* (this.maxCust-this.minCust)) + 1;
+            var hrlyCust = Math.floor(Math.random() * (this.maxCust-this.minCust)) + 1;
             
             var hrlySales = hrlyCust * this.avgCookieSales;
             
@@ -98,12 +139,12 @@ var shops =  [ {
         }
         
     },
-
+    
     calcCustCount: function() {
         this.cust =[];
         this.sales = [];
         for(var i = 0; i < 15; i++) {
-            var hrlyCust = Math.floor (Math.random()* (this.maxCust-this.minCust)) + 1;
+            var hrlyCust = Math.floor(Math.random()* (this.maxCust-this.minCust)) + 1;
             
             var hrlySales = hrlyCust * this.avgCookieSales;
             
@@ -141,7 +182,7 @@ var shops =  [ {
         this.cust =[];
         this.sales = [];
         for(var i = 0; i < 15; i++) {
-            var hrlyCust = Math.floor (Math.random()* (this.maxCust-this.minCust)) + 1;
+            var hrlyCust = Math.floor(Math.random()* (this.maxCust-this.minCust)) + 1;
             
             var hrlySales = hrlyCust * this.avgCookieSales;
             
@@ -178,7 +219,7 @@ var shops =  [ {
         this.cust =[];
         this.sales = [];
         for(var i = 0; i < 15; i++) {
-            var hrlyCust = Math.floor (Math.random()* (this.maxCust-this.minCust)) + 1;
+            var hrlyCust = Math.floor(Math.random()* (this.maxCust-this.minCust)) + 1;
             
             var hrlySales =Math.round (hrlyCust * this.avgCookieSales);
             
@@ -191,10 +232,10 @@ var shops =  [ {
 }
 ];
 
-function calcAndShowSales() {
-    for(var i = 0; i < shops.length; i++) {
-        shops[i].calcCustCount(); 
-        shops[i].showSales(); 
-    }
+// function calcAndShowSales() {
+//     for(var i = 0; i < shops.length; i++) {
+//         shops[i].calcCustCount(); 
+//         shops[i].showSales(); 
+//     }
     
-}
+// }
